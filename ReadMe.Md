@@ -1,6 +1,6 @@
 # ScopeTimer
 
-This is a scope timer in c++, which measures the time it takes for a scope to finish in Nano-second & CPU cycles. 
+This is a scope timer in c++, which measures the time it takes for a scope to finish in Nano-seconds & CPU cycles. 
 Very straightforward and easy code, which uses the chrono library.
 
 ## How it works ?
