@@ -4,7 +4,6 @@
 #include<array>
 #include<cmath>
 
-
 /*To call CPU clock*/
 //  Windows
 #ifdef _WIN32
