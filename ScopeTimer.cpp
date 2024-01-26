@@ -57,15 +57,22 @@ public:
 		auto Start = std::chrono::time_point_cast<std::chrono::nanoseconds>(m_StartTimeReference).time_since_epoch().count();
 		auto Finish = std::chrono::time_point_cast<std::chrono::nanoseconds>(FinishTimePoint).time_since_epoch().count();
 
-		auto Duration = Finish - Start;
-		double MilSec = Duration * 0.000001;
+        auto Duration = Finish - Start;
+        cumulativeDuration += Duration; // Add to the cumulative duration
 
+        double MilSec = Duration * 0.000001;
 		std::cout << Duration << "ns (" << MilSec << "ms)\n";
 		std::cout << TickTock << " CPU cycles \n";
 	}
 
+    static void PrintCumulativeDuration() {
+        double CumulativeMilSec = cumulativeDuration * 0.000001;
+        std::cout << "Cumulative Duration: " << cumulativeDuration << "ns (" << CumulativeMilSec << "ms)\n";
+    }
+
 private:
 
 	std::chrono::time_point<std::chrono::high_resolution_clock> m_StartTimeReference;
+    static inline long long cumulativeDuration = 0; // Static variable to store cumulative duration
     int_fast64_t Tick;
 };
